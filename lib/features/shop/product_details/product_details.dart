@@ -9,8 +9,7 @@ import '../../../common/widgets/product_image.dart';
 import '../../../utils/constants/sizes.dart';
 import 'package:readmore/readmore.dart';
 
-import '../screens/cart/cart.dart';
-import '../screens/checkout/checkout.dart';
+import '../screens/checkout.dart';
 import 'bottom_add_to_cart.dart';
 
 class ProductDetails extends StatelessWidget {

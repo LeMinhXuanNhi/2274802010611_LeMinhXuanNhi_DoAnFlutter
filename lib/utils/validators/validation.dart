@@ -1,4 +1,12 @@
 class Validator {
+  static String? validEmptyText(String? fieldName, String? value) {
+    if(value == null || value.isEmpty) {
+      return '$fieldName không được để trống';
+    }
+
+    return null;
+  }
+
   static String? validEmail(String? value) {
     if(value == null || value.isEmpty) {
       return 'Cần có Email';
@@ -12,6 +20,7 @@ class Validator {
 
     return null;
   }
+
   static String? validPass(String? value) {
     if(value == null || value.isEmpty) {
       return 'Cần có mật khẩu';
@@ -31,6 +40,7 @@ class Validator {
 
     return null;
   }
+
   static String? validPhoneNum(String? value) {
     if(value == null || value.isEmpty) {
       return 'Cần có SĐT';

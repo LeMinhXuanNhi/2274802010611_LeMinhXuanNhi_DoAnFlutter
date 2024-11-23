@@ -3,12 +3,12 @@ import 'package:fashion_app/common/widgets/cart_item.dart';
 import 'package:fashion_app/common/widgets/rounded_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../common/widgets/billing_amount_section.dart';
-import '../../../../common/widgets/billing_payment_section.dart';
-import '../../../../common/widgets/coupon.dart';
-import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/sizes.dart';
-import '../../../../utils/helpers/helper_functions.dart';
+import '../../../common/widgets/billing_amount_section.dart';
+import '../../../common/widgets/billing_payment_section.dart';
+import '../../../common/widgets/coupon.dart';
+import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/sizes.dart';
+import '../../../utils/helpers/helper_functions.dart';
 
 class Checkout extends StatelessWidget{
   const Checkout({super.key});
