@@ -2,6 +2,9 @@ import 'package:fashion_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'features/personalization/screens/profile.dart';
+import 'features/shop/screens/home.dart';
+
 class NavMenu extends StatelessWidget {
   const NavMenu({super.key});
 
@@ -34,6 +37,6 @@ class NavMenu extends StatelessWidget {
 class NavController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screen = [Container(color: Colors.green), Container(color: Colors.purple),
-  Container(color: Colors.orange), Container(color: Colors.blue)];
+  final screen = [const Home(), Container(color: Colors.blue),
+  Container(color: Colors.indigo), const Profile()];
 }

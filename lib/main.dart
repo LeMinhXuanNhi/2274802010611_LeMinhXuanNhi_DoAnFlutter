@@ -5,7 +5,7 @@ import 'package:fashion_app/app.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'data/repositories/authentication/AuthenticationRepository.dart';
+import 'data/repositories/authentication/authentication_repository.dart';
 
 Future<void> main() async{
   final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
