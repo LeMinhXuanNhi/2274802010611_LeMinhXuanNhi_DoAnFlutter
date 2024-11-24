@@ -35,28 +35,32 @@ class SignUpScreen extends StatelessWidget {
                         //Name
                         Row(
                           children: [
-                            Expanded(
-                              child: TextFormField(
-                                controller: controller.firstName,
-                                validator: (value) => Validator.validEmptyText('Tên', value),
-                                expands: false,
-                                decoration: const InputDecoration(
-                                  labelText: 'Tên',
-                                  prefixIcon: Icon(Icons.person),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: TextFormField(
+                                    controller: controller.firstName,
+                                    validator: (value) => Validator.validEmptyText('Tên', value),
+                                    expands: false,
+                                    decoration: const InputDecoration(
+                                      labelText: 'Tên',
+                                      prefixIcon: Icon(Icons.person),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                            const SizedBox(width: Sizes.defaultSpace),
-                            Expanded(
-                              child: TextFormField(
-                                controller: controller.lastName,
-                                validator: (value) => Validator.validEmptyText('Họ', value),
-                                expands: false,
-                                decoration: const InputDecoration(
-                                  labelText: 'Họ',
-                                  prefixIcon: Icon(Icons.person),
+                                const SizedBox(width: Sizes.defaultSpace),
+                                Expanded(
+                                  child: TextFormField(
+                                    controller: controller.lastName,
+                                    validator: (value) => Validator.validEmptyText('Họ', value),
+                                    expands: false,
+                                    decoration: const InputDecoration(
+                                      labelText: 'Họ',
+                                      prefixIcon: Icon(Icons.person),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
                           ],
                         ),

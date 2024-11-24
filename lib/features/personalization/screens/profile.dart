@@ -2,15 +2,18 @@ import 'package:fashion_app/common/widgets/appbar.dart';
 import 'package:fashion_app/common/widgets/section_heading.dart';
 import 'package:fashion_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../common/widgets/profile_detail.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
+import '../controllers/user_controller.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserController());
     final dark = HelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: const CustomAppBar(title: Text('Hồ sơ'), showBackArrow: true),
@@ -43,13 +46,17 @@ class Profile extends StatelessWidget {
 
               SectionHeading(title: 'Hồ sơ cá nhân', showActionButton: false,),
               SizedBox(height: Sizes.spaceBtwItems / 2),
-              ProfileDetail(onPressed: () {}, title: 'Tên', value: 'Xuân Nhi'),
-              ProfileDetail(onPressed: () {}, title: 'Tên người dùng', value: 'Xuân Nhi'),
+              ProfileDetail(onPressed: () {}, title: 'Tên', value: controller.user.value.fullName),
+              ProfileDetail(
+                  onPressed: () {}, title: 'Tên người dùng',
+                  value: controller.user.value.username
+              ),
 
               SectionHeading(title: 'Thông tin cá nhân', showActionButton: false,),
               SizedBox(height: Sizes.spaceBtwItems / 2),
-              ProfileDetail(onPressed: () {}, title: 'Mã người dùng', value: '22497'),
-              ProfileDetail(onPressed: () {}, title: 'Email', value: 'lmxnhi04@gmail.com'),
+              ProfileDetail(onPressed: () {}, title: 'Mã người dùng', value: controller.user.value.id),
+              ProfileDetail(onPressed: () {}, title: 'Email', value: controller.user.value.email),
+              ProfileDetail(onPressed: () {}, title: 'SĐT', value: controller.user.value.phoneNumber),
 
               Center(
                 child: TextButton(

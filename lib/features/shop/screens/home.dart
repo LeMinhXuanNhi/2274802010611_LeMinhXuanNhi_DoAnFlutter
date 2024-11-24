@@ -1,5 +1,6 @@
 import 'package:fashion_app/common/widgets/product_card_vertical.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../common/widgets/grid_layout.dart';
 import '../../../common/widgets/home_appbar.dart';
@@ -8,12 +9,14 @@ import '../../../common/widgets/search_container.dart';
 import '../../../common/widgets/section_heading.dart';
 import '../../../nav_menu.dart';
 import '../../../utils/constants/sizes.dart';
+import '../../personalization/controllers/user_controller.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key, String? email});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserController());
     return Scaffold(
       bottomNavigationBar: const NavMenu(),
       body: SingleChildScrollView(
