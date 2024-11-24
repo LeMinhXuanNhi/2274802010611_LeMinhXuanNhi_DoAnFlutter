@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fashion_app/data/repositories/authentication/authentication_repository.dart';
+import 'package:fashion_app/data/repositories/authentication_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import '../../../common/widgets/error_snackbar_loader.dart';
-import '../../../features/authentication/models/user_model.dart';
+import '../../common/widgets/error_snackbar_loader.dart';
+import '../../features/authentication/models/user_model.dart';
 
 class UserRepository extends GetxController{
   static UserRepository get instance => Get.find();
@@ -32,13 +32,14 @@ class UserRepository extends GetxController{
 
   Future<UserModel> fetchUserDetails() async {
     try {
-      final documentSnapshot = await _db.collection("Users").doc(
-          AuthenticationRepository.instance.authUser?.uid).get;
+      final documentSnapshot = await _db.collection("Users").
+      doc(AuthenticationRepository.instance.authUser?.uid).get();
       if (documentSnapshot.exists) {
         return UserModel.fromSnapshot(documentSnapshot);
       } else {
         return UserModel.empty();
-      } on FirebaseAuthException catch (e) {
+      }
+    } on FirebaseAuthException catch (e) {
       throw ErrorSnackbarLoader().toString();
     } on FirebaseException catch (e) {
       throw ErrorSnackbarLoader().toString();
@@ -46,7 +47,36 @@ class UserRepository extends GetxController{
       throw ErrorSnackbarLoader().toString();
     } on PlatformException catch (e) {
       throw ErrorSnackbarLoader().toString();
-    } catch (e) {throw ErrorSnackbarLoader().toString();}
+    } catch (e) {
+      throw ErrorSnackbarLoader().toString();
+    }
+  }
+
+  Future<void> updateUserDetails(UserModel updatedUser) async {
+    try {
+      await _db.collection("Users").doc(updatedUser.id).update(updatedUser.toJSON());
+    } on FirebaseException catch (e) {
+      throw ErrorSnackbarLoader().toString();
+    } on FormatException catch (_) {
+      throw ErrorSnackbarLoader().toString();
+    } on PlatformException catch (e) {
+      throw ErrorSnackbarLoader().toString();
+    } catch (e) {
+      throw ErrorSnackbarLoader().toString();
+    }
+  }
+
+  Future<void> removeUserRecord(String userID) async {
+    try {
+      await _db.collection("Users").doc(userID).delete();
+    } on FirebaseException catch (e) {
+      throw ErrorSnackbarLoader().toString();
+    } on FormatException catch (_) {
+      throw ErrorSnackbarLoader().toString();
+    } on PlatformException catch (e) {
+      throw ErrorSnackbarLoader().toString();
+    } catch (e) {
+      throw ErrorSnackbarLoader().toString();
     }
   }
 }

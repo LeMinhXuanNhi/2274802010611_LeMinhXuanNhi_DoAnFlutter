@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../../../common/widgets/error_snackbar_loader.dart';
-import '../../../features/shop/screens/home.dart';
+import '../../common/widgets/error_snackbar_loader.dart';
+import '../../features/shop/screens/home.dart';
 
 class AuthenticationRepository extends GetxController{
   static AuthenticationRepository get instance => Get.find();
@@ -43,6 +43,8 @@ class AuthenticationRepository extends GetxController{
       throw ErrorSnackbarLoader().toString();
     } on PlatformException catch (e) {
     throw ErrorSnackbarLoader().toString();
-    } catch (e) {throw ErrorSnackbarLoader().toString();}
+    } catch (e) {
+      throw ErrorSnackbarLoader().toString();
+    }
   }
 }
