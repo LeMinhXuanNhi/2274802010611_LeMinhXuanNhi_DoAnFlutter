@@ -12,7 +12,7 @@ class Validator {
       return 'Cần có Email';
     }
 
-    final emailRegExp = RegExp(r'^[\w-\]+@([\w-\]+\.)+[\w-\]{2-4}$');
+    final emailRegExp = RegExp(r'^[a-z.]+@[a-z]+\.[a-z]+');
 
     if(!emailRegExp.hasMatch(value)) {
       return 'Email không hợp lệ';
